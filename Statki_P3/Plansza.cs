@@ -82,14 +82,14 @@ namespace Statki_P3
             if (grid[y, x] == 'S')
             {
                 grid[y, x] = 'X';
-                enemyView[y, x] = 'X'; // Aktualizacja widoku przeciwnika
+                enemyView[y, x] = 'X';
                 Console.WriteLine("Trafiony!");
                 return true;
             }
             else if (grid[y, x] == '~')
             {
                 grid[y, x] = 'O';
-                enemyView[y, x] = 'O'; // Aktualizacja widoku przeciwnika
+                enemyView[y, x] = 'O';
                 Console.WriteLine("Pudło.");
                 return false;
             }
