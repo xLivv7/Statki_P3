@@ -23,7 +23,7 @@ namespace Statki_P3
 
         public void SetupShips()
         {
-            int[] shipSizes = { 4, 3, 3, 2, 2, 2, 1, 1, 1, 1 }; // Czteromasztowiec, trzymasztowce, itd.
+            int[] shipSizes = { 4, 3, 3, 2, 2, 2, 1, 1, 1, 1 };
             ships = new Ship[shipSizes.Length];
 
             for (int i = 0; i < shipSizes.Length; i++)
