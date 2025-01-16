@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Statki_P3
             enemyView = new char[Size, Size];
             InitializeGrid(grid, '~');
             InitializeGrid(enemyView, '?');
+
         }
 
         public void SetupShips()
@@ -80,12 +82,14 @@ namespace Statki_P3
             if (grid[y, x] == 'S')
             {
                 grid[y, x] = 'X';
+                enemyView[y, x] = 'X'; // Aktualizacja widoku przeciwnika
                 Console.WriteLine("Trafiony!");
                 return true;
             }
             else if (grid[y, x] == '~')
             {
                 grid[y, x] = 'O';
+                enemyView[y, x] = 'O'; // Aktualizacja widoku przeciwnika
                 Console.WriteLine("Pudło.");
                 return false;
             }
