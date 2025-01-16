@@ -23,16 +23,23 @@ namespace Statki_P3
 
             while (true)
             {
-                Console.Clear();
+                // Ustaw planszę aktualnego gracza i przeciwnika
                 Board currentBoard = player1Turn ? player2Board : player1Board;
-                Console.WriteLine(player1Turn ? "Tura gracza 1" : "Tura gracza 2");
+                Board ownBoard = player1Turn ? player1Board : player2Board;
 
-                currentBoard.Display(true);
+                Console.WriteLine(player1Turn ? "Tura gracza 1" : "Tura gracza 2");
+                Console.WriteLine("Twoja plansza:");
+                ownBoard.Display(false); // Wyświetl swoją planszę
+                Console.WriteLine("Widok przeciwnika:");
+                currentBoard.Display(true); // Wyświetl widok wroga
+
+                // Pobierz współrzędne do ataku
                 Console.Write("Podaj współrzędne do ataku (x y): ");
                 string[] input = Console.ReadLine().Split();
                 int x = int.Parse(input[0]);
                 int y = int.Parse(input[1]);
 
+                // Wykonaj atak
                 if (currentBoard.Attack(x, y))
                 {
                     if (currentBoard.AllShipsSunk())
@@ -41,7 +48,12 @@ namespace Statki_P3
                         break;
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Następuje zmiana tury.");
+                }
 
+                // Zmiana tury
                 player1Turn = !player1Turn;
             }
         }
